@@ -44,3 +44,24 @@ python3 manage.py createsuperuser
 #dans settings.py ajouter  "templates"
 #dans templates
 'DIRS': ["templates"],
+
+
+#créér un view
+def index(request):
+    return HttpResponse("Hello World!!")
+    
+    
+#Créez un fichier urls.py dans le répertoire de todo et y ajoutez-
+    
+    from django.urls import path
+from . import views
+urlpatterns = [
+    path(' ',views.index,name="index")
+]
+
+#Modifiez le fichier urls.py situé dans le répertoire Tp_Django
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path(' ',include('todolist.urls'))  # add this line
+]
+    
